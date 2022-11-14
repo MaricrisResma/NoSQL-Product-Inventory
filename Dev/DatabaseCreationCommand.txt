@@ -1,1 +1,4 @@
 create database jejomalu
+
+message = "Thank you for adding me"
+print("Hello Maricris!", message)
