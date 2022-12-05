@@ -17,7 +17,7 @@ except Exception:
 
 myDb = client[DB_NAME]
 # Create Customers collection
-myCollection_Customers = myDb["testcustomers"]
+myCollection_Customers = myDb["customers"]
 
 def cust_info(request):  
     if request.method == "POST":  

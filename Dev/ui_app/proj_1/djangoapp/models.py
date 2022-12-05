@@ -5,3 +5,4 @@ from django.db import models
 #     first_name = models.CharField(max_length=30)
 #     last_name = models.CharField(max_length=30)
 
+# https://www.youtube.com/watch?v=VOddmV4Xl1g

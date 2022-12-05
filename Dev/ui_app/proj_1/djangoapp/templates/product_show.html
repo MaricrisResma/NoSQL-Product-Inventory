@@ -31,14 +31,14 @@
                 <td>{{ product_info.productId }}</td>
                 <td>{{ product_info.productName }}</td>
                 <td>{{ product_info.productDescription }}</td>
-                <td>{{ product_info.billingAddress.productCategory }}</td>
-                <td>{{ product_info.billingAddress.price }}</td>
-                <td>{{ product_info.billingAddress.totalStock }}</td>
-                <td>{{ product_info.billingAddress.creationDate }}</td>
-                <td>{{ product_info.billingAddress.expiryDate }}</td>
-                <td>{{ product_info.deliveryAddress.quantity }}</td>
-                <td>{{ product_info.deliveryAddress.remaining }}</td>
-                <td>{{ product_info.deliveryAddress.isOffered }}</td>
+                <td>{{ product_info.productCategory }}</td>
+                <td>{{ product_info.price }}</td>
+                <td>{{ product_info.totalStock }}</td>
+                <td>{{ product_info.stockDetails.creationDate }}</td>
+                <td>{{ product_info.stockDetails.expiryDate }}</td>
+                <td>{{ product_info.stockDetails.quantity }}</td>
+                <td>{{ product_info.stockDetails.remaining }}</td>
+                <td>{{ product_info.isOffered }}</td>
                 <td>
                     <a href="/product/edit/{{ product_info.productId }}"><span class="glyphicon glyphicon-pencil">Edit</span></a>
                     <a href="/product/delete/{{ product_info.productId }}">Delete</a>

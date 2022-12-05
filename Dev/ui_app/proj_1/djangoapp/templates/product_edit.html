@@ -7,8 +7,8 @@
     <title>Update Product Details</title>
 </head>
 
-<body>
-    <form method="POST" class="post-form" action="/product/update/{{product_info.emailAddress}}">
+<body> 
+    <form method="POST" class="post-form" action="/product/update/{{product_info.productId}}">
         {% csrf_token %}  
         <div class="container">
             <br>
@@ -71,38 +71,31 @@
                 <label class="col-sm-2 col-form-label">Creation Date:</label>
                 <div class="col-sm-4">
                     <input type="text" name="creationDate" id="id_creationDate" required maxlength="254"
-                        value="{{ product_info.creationDate }}" />
+                        value="{{ product_info.stockDetails.creationDate }}" />
                 </div>
             </div>
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label">Expiry Date:</label>
                 <div class="col-sm-4">
                     <input type="text" name="expiryDate" id="id_expiryDate" required maxlength="254"
-                        value="{{ product_info.expiryDate }}" />
+                        value="{{ product_info.stockDetails.expiryDate }}" />
                 </div>
             </div>
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label">quantity:</label>
                 <div class="col-sm-4">
                     <input type="text" name="quantity" id="id_quantity" required maxlength="254"
-                        value="{{ product_info.quantity}}" />
+                        value="{{ product_info.stockDetails.quantity}}" />
                 </div>
             </div>
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label">remaining:</label>
                 <div class="col-sm-4">
                     <input type="text" name="remaining" id="id_remaining" required maxlength="254"
-                        value="{{ product_info.remaining }}" />
+                        value="{{ product_info.stockDetails.remaining }}" />
                 </div>
             </div>
 			
-            <div class="form-group row">
-                <label class="col-sm-2 col-form-label">zip:</label>
-                <div class="col-sm-4">
-                    <input type="text" name="zip" id="id_zip" required maxlength="254"
-                        value="{{ product_info.dZip }}" />
-                </div>
-            </div>
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label">isOffered:</label>
                 <div class="col-sm-4">
