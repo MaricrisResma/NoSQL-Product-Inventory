@@ -118,7 +118,9 @@ def delete_customer(request, emailAddress):
     return redirect("/customer/show")  
 
 def index(request):
-    return HttpResponse("<h1>Hello and welcome to my first <u>Django App</u> project!</h1>")
+    # return HttpResponse("<h1>Hello and welcome to JEJOMALU BAKERY</h1>")
+     # Render the HTML template index.html with the data in the context variable
+    return render(request, 'index.html')
 
 def get_top_5():
     pass

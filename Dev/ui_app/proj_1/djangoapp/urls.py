@@ -6,7 +6,7 @@ from .import views, views_products
 # The request parameter is a HttpRequest object, which contains data about the request (see the docs for django 3.2).
 
 urlpatterns = [
-    # path('',views.index,name='index'),
+    path('',views.index,name='index'),
     path('customer/add', views.cust_info), 
     path('customer/show',views.show_customers),  
     path('customer/edit/<str:emailAddress>', views.edit_customer),  
