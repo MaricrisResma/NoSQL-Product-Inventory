@@ -1,0 +1,15 @@
+PROJECT SIZE 2
+- USE CASE
+- GANTT CHART
+- PRESENTATION PPT
+- DOCUMENTATION
+- DEMONSTRATION with Live Demo
+-  --implemented live libraray demonstatrion
+	-- tell me which are the modules for size of 2
+	-- these are the size gathering process we implemented
+	-- these are the automation
+	-- these are the implementation
+	-- by team1, by team2, by team3
+
+PROJECT SIZE 3
+-

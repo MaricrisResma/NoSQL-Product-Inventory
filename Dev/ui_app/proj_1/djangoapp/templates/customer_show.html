@@ -15,12 +15,14 @@
                 <th>Customer Email</th>
                 <th>Customer First Name</th>
                 <th>Customer Last Name</th>
-				<th>BillingAddress bstreet</th>
-                <th>BillingAddress bcity</th>
-				<th>BillingAddress bprovince</th>
-                <th>BillingAddress bzip</th>
-				<th>BillingAddress bmobileNumber</th>
+				<th>BillingAddress bStreet</th>
+                <th>BillingAddress bUnit</th>
+                <th>BillingAddress bCity</th>
+				<th>BillingAddress bProvince</th>
+                <th>BillingAddress bZip</th>
+				<th>BillingAddress bMobileNumber</th>
 				<th>deliveryAddress street</th>
+                <th>BillingAddress dUnit</th>
                 <th>deliveryAddress city</th>
 				<th>deliveryAddress province</th>
                 <th>deliveryAddress zip</th>
@@ -39,16 +41,18 @@
                 <td>{{ customer_info.emailAddress }}</td>
                 <td>{{ customer_info.firstName }}</td>
                 <td>{{ customer_info.lastName }}</td>
-                <td>{{ customer_info.billingAddress.bstreet }}</td>
-                <td>{{ customer_info.billingAddress.bcity }}</td>
-                <td>{{ customer_info.billingAddress.bprovince }}</td>
-                <td>{{ customer_info.billingAddress.bzip }}</td>
-                <td>{{ customer_info.billingAddress.bmobileNumber }}</td>
-                <td>{{ customer_info.deliveryAddress.street }}</td>
-                <td>{{ customer_info.deliveryAddress.city }}</td>
-                <td>{{ customer_info.deliveryAddress.province }}</td>
-                <td>{{ customer_info.deliveryAddress.zip }}</td>
-                <td>{{ customer_info.billingAddress.mobileNumber }}</td>
+                <td>{{ customer_info.billingAddress.bStreet }}</td>
+                <td>{{ customer_info.billingAddress.bUnit }}</td>
+                <td>{{ customer_info.billingAddress.bCity }}</td>
+                <td>{{ customer_info.billingAddress.bProvince }}</td>
+                <td>{{ customer_info.billingAddress.bZip }}</td>
+                <td>{{ customer_info.billingAddress.bMobileNumber }}</td>
+                <td>{{ customer_info.deliveryAddress.dStreet }}</td>
+                <td>{{ customer_info.deliveryAddress.dUnit }}</td>
+                <td>{{ customer_info.deliveryAddress.dCity }}</td>
+                <td>{{ customer_info.deliveryAddress.dProvince }}</td>
+                <td>{{ customer_info.deliveryAddress.dZip }}</td>
+                <td>{{ customer_info.deliveryAddress.dMobileNumber }}</td>
                 <td>{{ customer_info.paymentMethod.paymentType }}</td>
                 <td>{{ customer_info.paymentMethod.nameOnCard }}</td>
 				<td>{{ customer_info.paymentMethod.cardScheme }}</td>
@@ -64,7 +68,7 @@
     </table>
     <br>
     <br>
-    <center><a href="/customer/add" class="btn btn-primary">Add New Record</a></center>
+    <center><a href="/customer/add" class="btn btn-primary">Add New Customer Record</a></center>
 </body>
 
 </html>
