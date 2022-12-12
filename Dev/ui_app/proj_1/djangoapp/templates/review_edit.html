@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <title>Update Reviews Details</title>
+</head>
+
+<body>
+    <form method="POST" class="post-form" action="/review/update/{{reviews_info.emailAddress}}">
+        {% csrf_token %}  
+        <div class="container">
+            <br>
+            <div class="form-group row">
+                <label class="col-sm-1 col-form-label"></label>
+                <div class="col-sm-4">
+                    <h3>Enter Details</h3>
+                
+                </div>
+            </div>
+            <br>
+            <div class="col-sm-4"></div>
+            <!-- <font size=5>  Required fields </font> -->
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label"><b>Product ID</b></label>
+            </div>        
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">ProductID:</label>
+                <div class="col-sm-4">
+                
+                    <input type="test" name="ProductID" id="id_ProductID" required maxlength="100"
+                        value="{{ reviews_info.productId }}" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label"><b>Review ID</b></label>
+            </div>       
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">ReviewID:</label>
+                <div class="col-sm-4">
+                    <input type="text" name="firstName" id="id_firstName" required maxlength="254"
+                        value="{{ reviews_info.reviewId }} " />
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label"><b>Review Details</b></label>
+            </div>       
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Order ID:</label>
+                <div class="col-sm-4">
+                    <input type="text" name="lastName" id="id_lastName" required maxlength="15"
+                        value="{{ form.lastName }}" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <!-- <label class="col-sm-2 col-form-label">Post Date:</label> -->
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Post Date:</label>
+                <div class="col-sm-4">
+                    <input type="text" name="bstreet" id="id_bstreet" required maxlength="254"
+                        value="{{ form.bstreet }}" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Rating:</label>
+                <div class="col-sm-4">
+                    <input type="text" name="bcity" id="id_bcity" required maxlength="254"
+                        value="{{ form.bcity }}" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Review Text:</label>
+                <div class="col-sm-4">
+                    <input type="text" name="bprovince" id="id_bprovince" required maxlength="254"
+                        value="{{ form.bprovince }}" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Email address:</label>
+                <div class="col-sm-4">
+                    <input type="emailaddress" name="bzip" id="id_emailaddress" required maxlength="254"
+                        value="{{ form.bzip }}" />
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label"><b>Total Ratings</b></label>
+            </div>       
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Total Ratings:</label>
+                <div class="col-sm-4">
+                    <input type="text" name="lastName" id="id_lastName" required maxlength="15"
+                        value="{{ form.lastName }}" />
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label"><b>Rating Count</b></label>
+                </div>       
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Rating Count:</label>
+                    <div class="col-sm-4">
+                        <input type="text" name="lastName" id="id_lastName" required maxlength="15"
+                            value="{{ reviews_info.ratingCount }}" />
+                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <div class="form-group row">
+                <label class="col-sm-1 col-form-label"></label>
+                <div class="col-sm-4">
+                    <button type="submit" class="btn btn-success">Update</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+
+</html>

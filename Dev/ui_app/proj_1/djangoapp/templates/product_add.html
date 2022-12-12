@@ -50,15 +50,15 @@
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label">Price:</label>
                 <div class="col-sm-4">
-                    <input type="text" name="price" id="id_price" required maxlength="254"
+                    <input type="number" step=0.01 name="price" id="id_price" required maxlength="254"
                         value="" />
                 </div>
             </div>
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label">Total Stock:</label>
                 <div class="col-sm-4">
-                    <input type="text" name="totalStock" id="id_totalStock" required maxlength="254"
-                        value="" />
+                    <input type="number" name="totalStock" id="id_totalStock" required maxlength="254"
+                        value="" readonly>
                 </div>
             </div>
 			
@@ -69,28 +69,28 @@
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label">Creation Date:</label>
                 <div class="col-sm-4">
-                    <input type="text" name="creationDate" id="id_creationDate" required maxlength="254"
+                    <input type="datetime-local" name="creationDate" id="id_creationDate" required maxlength="254"
                         value="" />
                 </div>
             </div>
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label">Expiry Date:</label>
                 <div class="col-sm-4">
-                    <input type="text" name="expiryDate" id="id_expiryDate" required maxlength="254"
+                    <input type="datetime-local" name="expiryDate" id="id_expiryDate" required maxlength="254"
                         value="" />
                 </div>
             </div>
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label">quantity:</label>
                 <div class="col-sm-4">
-                    <input type="text" name="quantity" id="id_quantity" required maxlength="254"
+                    <input type="number" name="quantity" id="id_quantity" required maxlength="254"
                         value="" />
                 </div>
             </div>
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label">remaining:</label>
                 <div class="col-sm-4">
-                    <input type="text" name="remaining" id="id_remaining" required maxlength="254"
+                    <input type="number" name="remaining" id="id_remaining" required maxlength="254"
                         value="" />
                 </div>
             </div>
@@ -99,7 +99,7 @@
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label">isOffered:</label>
                 <div class="col-sm-4">
-                    <input type="text" name="isOffered" id="id_isOfferedx" required maxlength="254"
+                    <input type="range" name="isOffered" id="id_isOffered" required min="0" max="1"
                         value="" />
                 </div>
             </div>

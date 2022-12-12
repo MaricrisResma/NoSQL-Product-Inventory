@@ -3,53 +3,109 @@
 
 <head>
     <meta charset="UTF-8">
-    <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <title>Product Records</title>
+    <title>Product Details</title>
 </head>
 
-<body>
-    <table class="table table-striped table-bordered table-sm">
-        <thead class="thead-dark">
-            <tr>
-                <th>Product ID</th>
-                <th>Product Name</th>
-                <th>Product Description</th>
-				<th>Product Category</th>
-                <th>Price</th>
-				<th>Total Stock</th>
-                <th>Stock Creation date</th>
-				<th>Stock expiry date</th>
-				<th>Stock Quantity</th>
-                <th>Stock Remaining</th>
-				<th>isOffered status</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for product_info in product_infos %}
-            <tr>
-                <td>{{ product_info.productId }}</td>
-                <td>{{ product_info.productName }}</td>
-                <td>{{ product_info.productDescription }}</td>
-                <td>{{ product_info.productCategory }}</td>
-                <td>{{ product_info.price }}</td>
-                <td>{{ product_info.totalStock }}</td>
-                <td>{{ product_info.stockDetails.creationDate }}</td>
-                <td>{{ product_info.stockDetails.expiryDate }}</td>
-                <td>{{ product_info.stockDetails.quantity }}</td>
-                <td>{{ product_info.stockDetails.remaining }}</td>
-                <td>{{ product_info.isOffered }}</td>
-                <td>
-                    <a href="/product/edit/{{ product_info.productId }}"><span class="glyphicon glyphicon-pencil">Edit</span></a>
-                    <a href="/product/delete/{{ product_info.productId }}">Delete</a>
-                </td>
-            </tr>
+<body> 
+
+        <div class="container">
+            <br>
+            <div class="form-group row">
+                <label class="col-sm-1 col-form-label"></label>
+                <div class="col-sm-4">
+                    <h3>[{{ product_info.productId }}] {{ product_info.productName }}</h3>
+                </div>
+            </div>
+
+
+            <div class="form-group row">
+                <label for=id_productId class="col-sm-2 col-form-label">Product Id:</label>
+                <div class="col-sm-4">
+                    <input type="text" name="productId" id="id_productId" required maxlength="100"
+                        value="{{ product_info.productId }}" readonly>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Product Name:</label>
+                <div class="col-sm-4">
+                    <input type="text" name="productName" id="id_productName" required maxlength="254"
+                        value="{{ product_info.productName }}" readonly>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Product Description:</label>
+                <div class="col-sm-4">
+                    <input type="text" name="productDescription" id="id_productDescription" required maxlength="15"
+                        value="{{ product_info.productDescription }}" readonly>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Product Category:</label>
+                <div class="col-sm-4">
+                    <input type="text" name="productCategory" id="id_productCategory" required maxlength="254"
+                        value="{{ product_info.productCategory }}" readonly>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Price:</label>
+                <div class="col-sm-4">
+                    <input type="number" step=0.01 name="price" id="id_price" required maxlength="254"
+                        value="{{ product_info.price }}" readonly>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Total Stock:</label>
+                <div class="col-sm-4">
+                    <input type="number" name="totalStock" id="id_totalStock" required maxlength="254"
+                        value="{{ product_info.totalStock }}" readonly>
+                </div>
+            </div>
+			
+	
+            <div class="form-group row">
+                <strong> <label class="col-sm-2 col-form-label">Stock Details:</label> </strong>
+            </div>
+            {% for stockDetails in product_info.stockDetails %}
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Creation Date: {{ stockDetails.creationDate }}</label>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Expiry Date: {{ stockDetails.expiryDate }}</label>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">quantity:</label>
+                <div class="col-sm-4">
+                    <input type="number" name="quantity" id="id_quantity" required maxlength="254"
+                        value="{{ stockDetails.quantity}}" readonly>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">remaining:</label>
+                <div class="col-sm-4">
+                    <input type="number" name="remaining" id="id_remaining" required maxlength="254"
+                        value="{{ stockDetails.remaining }}" readonly>
+                </div>
+            </div>
+            <br>
+            <a href="/product/show/{{ product_info.productId }}/remove-stock/{{ stockDetails.creationDate }}"><span class="btn btn-success">Remove Stock</span></a>
             {% endfor %}
-        </tbody>
-    </table>
-    <br>
-    <br>
-    <center><a href="/product/add" class="btn btn-primary">Add New Product Record</a></center>
+
+            <br>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">isOffered:</label>
+                <div class="col-sm-4">
+                    <input type="number" name="isOffered" id="id_isOffered" required maxlength="254"
+                        value="{{ product_info.isOffered }}" />
+                </div>
+            </div>
+            <br>
+            <a href="/product/show/{{ product_info.productId }}/add-stock"><span class="btn btn-success">Add Stock</span></a>
+            <br>
+            <center><a href="/product/show/all" class="btn btn-primary">Go Back</a></center>
+        </div>
+
 </body>
 
 </html>

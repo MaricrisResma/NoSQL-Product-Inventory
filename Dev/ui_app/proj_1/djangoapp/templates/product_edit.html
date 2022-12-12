@@ -51,15 +51,15 @@
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label">Price:</label>
                 <div class="col-sm-4">
-                    <input type="text" name="price" id="id_price" required maxlength="254"
+                    <input type="number" step=0.01 name="price" id="id_price" required maxlength="254"
                         value="{{ product_info.price }}" />
                 </div>
             </div>
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label">Total Stock:</label>
                 <div class="col-sm-4">
-                    <input type="text" name="totalStock" id="id_totalStock" required maxlength="254"
-                        value="{{ product_info.totalStock }}" />
+                    <input type="number" name="totalStock" id="id_totalStock" required maxlength="254"
+                        value="{{ product_info.totalStock }}" readonly>
                 </div>
             </div>
 			
@@ -68,38 +68,38 @@
                 <label class="col-sm-2 col-form-label">Stock Details:</label>
             </div>
             <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Creation Date:</label>
+                <label class="col-sm-2 col-form-label">Creation Date: {{ product_info.stockDetails.0.creationDate }}</label>
                 <div class="col-sm-4">
-                    <input type="text" name="creationDate" id="id_creationDate" required maxlength="254"
-                        value="{{ product_info.stockDetails.creationDate }}" />
+                    <input type="datetime-local" name="creationDate" id="id_creationDate" required maxlength="254"
+                        value="{{ product_info.stockDetails.0.creationDate }}" />
                 </div>
             </div>
             <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Expiry Date:</label>
+                <label class="col-sm-2 col-form-label">Expiry Date: {{ product_info.stockDetails.0.expiryDate }}</label>
                 <div class="col-sm-4">
-                    <input type="text" name="expiryDate" id="id_expiryDate" required maxlength="254"
-                        value="{{ product_info.stockDetails.expiryDate }}" />
+                    <input type="datetime-local" name="expiryDate" id="id_expiryDate" required maxlength="254"
+                        value="{{ product_info.stockDetails.0.expiryDate }}" />
                 </div>
             </div>
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label">quantity:</label>
                 <div class="col-sm-4">
-                    <input type="text" name="quantity" id="id_quantity" required maxlength="254"
-                        value="{{ product_info.stockDetails.quantity}}" />
+                    <input type="number" name="quantity" id="id_quantity" required maxlength="254"
+                        value="{{ product_info.stockDetails.0.quantity}}" />
                 </div>
             </div>
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label">remaining:</label>
                 <div class="col-sm-4">
-                    <input type="text" name="remaining" id="id_remaining" required maxlength="254"
-                        value="{{ product_info.stockDetails.remaining }}" />
+                    <input type="number" name="remaining" id="id_remaining" required maxlength="254"
+                        value="{{ product_info.stockDetails.0.remaining }}" />
                 </div>
             </div>
 			
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label">isOffered:</label>
                 <div class="col-sm-4">
-                    <input type="text" name="isOffered" id="id_isOffered" required maxlength="254"
+                    <input type="range" name="isOffered" id="id_isOffered" min="0" max="1"
                         value="{{ product_info.isOffered }}" />
                 </div>
             </div>
