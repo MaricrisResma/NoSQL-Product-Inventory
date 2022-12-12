@@ -1,0 +1,314 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <title>Show order</title>
+</head>
+
+<body>
+    <form method="POST" class="post-form" action="/order/update/{{orders_info.orderId}}">
+        {% csrf_token %}  
+        <div class="container">
+            <br>
+            <div class="form-group row">
+                <label class="col-sm-1 col-form-label"></label>
+                <div class="col-sm-4">
+                    <h3><font size=5> Order Details for OrderId: [{{orders_info.orderId}}]</font></h3>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-1 col-form-label"></label>
+                    <div class="col-sm-4">
+                        <h3><font size=5></font></h3>
+                    </div>
+            </div>
+              </div>
+            <div class="form-group row">
+                <label for=id_CustomerEmail class="col-sm-2 col-form-label">Customer Email:</label>
+                <div class="col-sm-4">
+                    <input type="email" name="emailAddress" id="id_emailAddress" required maxlength="100"
+                        value="{{ orders_info.emailAddress }}" readonly>
+            </div>
+
+            <div class="form-group row">
+                <label for=id_OrderId class="col-sm-2 col-form-label">OrderId:</label>
+                <div class="col-sm-4">
+                    <input type="text" name="orderId" id="id_order" required maxlength="100"
+                        value="{{ orders_info.orderId }}" readonly>
+            </div>
+
+            <div class="form-group row">
+                <label for=id_employeeUserName class="col-sm-2 col-form-label">EmployeeUserName</label>
+                <div class="col-sm-4">
+                    <input type="email" name="employeeUserName" id="id_employeeUserName" required maxlength="100"
+                        value="{{ orders_info.employeeUserName }}" readonly>
+               
+            </div>
+
+            <!-- Delivery Address -->
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label"><b>Delivery Address</b></label>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Name:</label>
+                <div class="col-sm-4">
+                    <input type="text" name="dStreet" id="id_dname" required maxlength="254"
+                        value="{{ orders_info.deliveryAddress.dName }}" readonly>
+                </div>
+            
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Street:</label>
+                <div class="col-sm-4">
+                    <input type="text" name="dStreet" id="id_dStreet" required maxlength="254"
+                        value="{{ orders_info.deliveryAddress.dStreet }}" readonly>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">City: </label>
+                <div class="col-sm-4">
+                    <input type="text" name="dCity" id="id_dCity" required maxlength="254"
+                        value="{{ orders_info.deliveryAddress.dCity }}" readonly>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Province:</label>
+                <div class="col-sm-4">
+                    <input type="text" name="dProvince" id="id_dProvince" required maxlength="254"
+                        value="{{ orders_info.deliveryAddress.dProvince }}" readonly>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Zip:</label>
+                <div class="col-sm-4">
+                    <input type="text" name="dZip" id="id_dZip" required maxlength="254"
+                        value="{{ orders_info.deliveryAddress.dZip }}" readonly>
+                </div>
+            </div>
+ 
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">MobileNumber:</label>
+                <div class="col-sm-4">
+                    <input type="text" name="mobileNumber" id="id_mobileNumber" required maxlength="254"
+                        value="{{ orders_info.deliveryAddress.dMobileNumber }}" readonly>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">bName:</label>
+                <div class="col-sm-4">
+                    <input type="text" name="bName" id="id_bName" required maxlength="254"
+                        value="{{ orders_info.billingAddress.bName }}" readonly>
+                </div>
+            </div>
+            
+            <br>
+
+<!-- Billing Address -->
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label"><b>BillingAddress</b></label>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Name:</label>
+                <div class="col-sm-4">
+                    <input type="text" name="bName" id="id_bName" required maxlength="254"
+                        value="{{ orders_info.billingAddress.bName }}" readonly>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Street:</label>
+                <div class="col-sm-4">
+                    <input type="text" name="bStreet" id="id_bStreet" required maxlength="254"
+                        value="{{ orders_info.billingAddress.bStreet }}" readonly>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">City:</label>
+                <div class="col-sm-4">
+                    <input type="text" name="bCity" id="id_bCity" required maxlength="254"
+                        value="{{ orders_info.billingAddress.bCity }}" readonly>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Province:</label>
+                <div class="col-sm-4">
+                    <input type="text" name="bProvince" id="id_bProvince" required maxlength="254"
+                        value="{{ orders_info.billingAddress.bProvince }}" readonly>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Zip:</label>
+                <div class="col-sm-4">
+                    <input type="text" name="bZip" id="id_bZip" required maxlength="254"
+                        value="{{ orders_info.billingAddress.bZip }}" readonly>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">mobileNumber:</label>
+                <div class="col-sm-4">
+                    <input type="text" name="bMobileNumber" id="id_bMobileNumber" required maxlength="254"
+                        value="{{ orders_info.billingAddress.bMobileNumber  }}" readonly>
+                </div>
+            </div> 
+
+              <!-- Payment Method -->
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label"><b>Payment Method </b></label>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">PaymentType:</label>
+                <div class="col-sm-4">
+                    <input type="text" name="paymentType" id="id_paymentType" required maxlength="254"
+                        value="{{ orders_info.paymentMethod.paymentType }}" readonly>
+                </div>
+            </div>
+           
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">CardScheme:</label>
+                <div class="col-sm-4">
+                    <input type="text" name="cardScheme" id="id_cardScheme" required maxlength="254"
+                        value="{{ orders_info.paymentMethod.cardScheme }}" readonly>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">CardLast4:</label>
+                <div class="col-sm-4">
+                    <input type="text" name="cardLast4" id="id_cardLast4" required maxlength="254"
+                        value="{{ orders_info.paymentMethod.cardLast4 }}" readonly>
+                </div>
+            </div>
+
+<!-- totalQty, orderTotal, grossTotal, tax and deliveryFee -->
+
+            <div class="form-group row">
+                <label class="col-sm-5 col-form-label"><b>Total Qty</b></label>
+            </div>
+
+       <div class="form-group row">
+            <label  class="col-sm-2 col-form-label">Total Qty:</label>
+            <div class="col-sm-4">
+                <input type="number" name="totalQty" id="id_totalQty" required maxlength="100"
+                    value="{{ orders_info.totalQty }}" readonly>
+                </div></div>
+
+                <div class="form-group row">
+                    <label class="col-sm-5 col-form-label"><b>Order Total</b></label>
+                </div>
+           <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Order Total:</label>
+                <div class="col-sm-4">
+                    <input type="number" step=0.01 name="ordertotal" id="id_ordertotal" required maxlength="100"
+                        value="{{ orders_info.orderTotal }}" readonly>
+                    </div></div>
+
+           
+            <div class="form-group row">
+                            <label class="col-sm-5 col-form-label"><b>Gross Total</b></label>
+                        </div>
+                   <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Gross Total:</label>
+                        <div class="col-sm-4">
+                            <input type="number" step=0.01 name="Gross Total" id="id_ordertotal" required maxlength="100"
+                                value="{{ orders_info.grossTotal }}" readonly>
+
+                            </div></div>
+        
+         <div class="form-group row">
+                            <label class="col-sm-5 col-form-label"><b>Tax</b></label>
+                        </div>
+                   <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Tax:</label>
+                        <div class="col-sm-4">
+                            <input type="number" step=0.01 name="tax" id="id_tax" required maxlength="100"
+                                value="{{ orders_info.tax }}" readonly>
+
+                            </div></div>
+           <!-- Delivery fee -->
+            <div class="form-group row">
+                            <label class="col-sm-5 col-form-label"><b>Delivery Fee</b></label>
+                        </div>
+                   <div class="form-group row">
+                        <label for=id_deliveryFee class="col-sm-2 col-form-label">Delivery Fee:</label>
+                        <div class="col-sm-4">
+                            <input type="number" step=0.01 name="deliveryFee" id="id_deliveryFee" required maxlength="100"
+                                value="{{ orders_info.deliveryFee }}" readonly>
+            <!-- Order details -->
+                            </div></div>
+                <div class="form-group row">
+                            <label class="col-sm-5 col-form-label"><b>Order Details</b></label>
+                        </div>
+            
+                    {% for orderDetails in orders_info.orderDetails %}
+                    <div class="form-group row">
+                                <label for=id_productId class="col-sm-2 col-form-label">ProductId:</label>
+                                <div class="col-sm-4">
+                                    <input type="TEXT" name="OProductId" id="id_ProductId" required maxlength="100"
+                                        value="{{ orderDetails.productId }}" readonly>
+                                    </div></div>
+                    <div class="form-group row">
+                        <label for=id_productName class="col-sm-2 col-form-label">Product Name:</label>
+                        <div class="col-sm-4">
+                            <input type="TEXT" name="productName" id="id_productName" required maxlength="100"
+                                value="{{ orderDetails.productName }}" readonly>
+                            </div></div>
+                    <div class="form-group row">
+                                <label for=id_quantity class="col-sm-2 col-form-label">Quantity:</label>
+                                <div class="col-sm-4">
+                                    <input type="number" name="quantity" id="id_quantity" required maxlength="100"
+                                        value="{{ orderDetails.quantity }}" readonly>
+                                    </div></div>
+                    <div class="form-group row">
+                                        <label for=id_price class="col-sm-2 col-form-label">Price:</label>
+                                        <div class="col-sm-4">
+                                            <input type="number" step=0.01 name="price" id="id_price" required maxlength="100"
+                                                value="{{ orderDetails.price }}" readonly>
+                                            </div></div>
+                    <div class="form-group row">
+                                        <label for=id_subTotal class="col-sm-2 col-form-label">SubTotal:</label>
+                                        <div class="col-sm-4">
+                                                 <input type="number" step=0.01 name="subTotal" id="id_subTotal" required maxlength="100"
+                                                        value="{{ orderDetails.subTotal }}" readonly>
+                                                    </div></div>
+                {% endfor %}
+
+                    <br><br>
+                    <div class="form-group row">
+                                        <label for=id_orderDate class="col-sm-2 col-form-label">Order Date: {{ orders_info.orderDate }}</label>
+                                     </div>
+
+                                                                    <div class="form-group row">
+                                                                        <label class="col-sm-5 col-form-label"><b>Order Status</b></label>
+                                                                            </div>
+                                                        <div class="form-group row">
+                                                                            <label for=id_orderStatus class="col-sm-2 col-form-label">Order Status:</label>
+                                                                            <div class="col-sm-4">
+                                                                            <input type="TEXT" name="orderStatus" id="id_orderStatus" required maxlength="100"
+                                                                                                            value="{{ orders_info.orderStatus }}" readonly>
+                                                                                                        </div></div>
+
+            <div class="form-group row">
+                            <label class="col-sm-5 col-form-label"><b>Status Date</b></label>
+                        </div>
+                            <div class="form-group row">
+                            <label for=id_statusDate class="col-sm-2 col-form-label">Status Date: {{ orders_info.statusDate }}</label>
+              
+                        </div>
+                                    
+                            </div></div>
+
+                            <center><a href="/order/show/all" class="btn btn-primary">Go Back</a></center>
+        </div>
+    </form>
+</body>
+
+</html>

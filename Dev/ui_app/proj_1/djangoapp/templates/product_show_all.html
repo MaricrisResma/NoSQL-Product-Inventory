@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <title>Product Records</title>
+</head>
+
+<body>
+
+    <form method="POST" class="post-form" action="/product/show/all">
+        {% csrf_token %}  
+        <div class="container">
+            <center><font size=12><b>Products Records</b></font></center>
+            <br>
+			FILTER PRODUCTS: <br>
+            <div class="form-group row">
+                <label for=id_productId class="col-sm-2 col-form-label">productNameFilter</label>
+                <div class="col-sm-4">
+                    <input type="text" name="productNameFilter" id="id_productNameFilter"  maxlength="100"
+                        value="{{ form.productNameFilter }}" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">productDescriptionFilter</label>
+                <div class="col-sm-4">
+                    <input type="text" name="productDescriptionFilter" id="id_productDescriptionFilter"  maxlength="254"
+                        value="" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">productCategory</label>
+                <div class="col-sm-4">
+                    <input type="text" name="productCategory" id="id_productCategory"  maxlength="15"
+                        value="" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">totalStockFilter</label>
+                <div class="col-sm-4">
+                    <input type="number" name="totalStockFilter" id="id_totalStockFilter"  maxlength="254"
+                        value="" />
+                </div>
+            </div>
+
+            <br>
+             <div class="form-group row">
+                <label class="col-sm-1 col-form-label"></label>
+                <div class="col-sm-4">
+                    <button type="submit" class="btn btn-success">Search Filter</button>
+                </div>
+            </div>
+            <br>
+        </div>
+    </form>
+    
+    <br>
+    <form method='get' action='#'>
+        <input type="submit" value="getExpired" name="getExpired"/>
+    </form>
+
+
+
+
+
+    <table class="table table-striped table-bordered table-sm">
+        <thead class="thead-dark">
+            <tr>
+                <th>Product ID</th>
+                <th>Product Name</th>
+                <th>Product Description</th>
+				<th>Product Category</th>
+                <th>Price</th>
+				<th>Total Stock</th>
+                <th>Stock Creation date</th>
+                <th>Stock expiry date</th>
+                <th>Stock Quantity</th>
+                <th>Stock Remaining</th>
+				<th>isOffered status</th>
+                <th><strong>ADMIN CRUD</strong></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for product_info in product_infos %}
+            <tr>
+                <td><a href="/product/show/{{ product_info.productId }}">{{ product_info.productId }}</a></td>
+                <td>{{ product_info.productName }}</td>
+                <td>{{ product_info.productDescription }}</td>
+                <td>{{ product_info.productCategory }}</td>
+                <td>{{ product_info.price }}</td>
+                <td>{{ product_info.totalStock }}</td>
+                <td>{{ product_info.stockDetails.0.creationDate }}</td>
+                <td>{{ product_info.stockDetails.0.expiryDate }}</td>
+                <td>{{ product_info.stockDetails.0.quantity }}</td>
+                <td>{{ product_info.stockDetails.0.remaining }}</td>
+                <td>{{ product_info.isOffered }}</td>
+                <td>
+                    <a href="/product/edit/{{ product_info.productId }}"><span class="glyphicon glyphicon-pencil">Admin-Update</span></a>
+                    <a href="/product/delete/{{ product_info.productId }}">Admin-Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <br>
+    <br>
+    <center><a href="/product/add" class="btn btn-primary">Admin-Create</a></center>
+    <br>
+    <center><a href="/" class="btn btn-primary">Go Back</a></center>
+</body>
+
+</html>

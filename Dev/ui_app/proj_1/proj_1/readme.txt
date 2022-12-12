@@ -42,3 +42,16 @@ Django forms
 
 --to run webserver
 Python manage.py runserver
+
+
+https://pymongo.readthedocs.io/en/stable/tutorial.html
+
+bugs 
+http://127.0.0.1:8000/order/show/20221105082400 - solved
+bug in removing stock - solved
+
+
+ratings do by http://127.0.0.1:8000/review/show/all manual computation of array - solved
+# 
+
+add filter - todo
